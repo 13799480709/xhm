@@ -1,0 +1,70 @@
+package FoxnRabbit;
+
+import javax.swing.JFrame;
+
+import field.Field;
+import field.View;
+
+public class FoxAndRabbit {
+	private Field theField;
+	private View theView;
+	
+	public FoxAndRabbit(int size) {
+		
+		theField = new Field(size,size);
+		
+		for(int row=0;row<theField.getsize;row++) {
+			for(int col=0;col<theField.getsize;col++) {
+				double probability=Math.random();
+				if(probability < 0.05) {
+						theField.place(row,col,new Fox());
+				}
+				if(probability<0.12) {
+					theField.place(row,col,new Rabbit());
+				}
+				}
+		
+		}
+		theView=new View(theField);
+		JFrame frame= new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setTitle("Cells");
+		frame.add(theView);
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	public void start(int steps) {
+		
+		for(int i=0;i<steps;i++) {
+			step();
+			theView.repaint();
+			try {
+				Thread.sleep(200);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void step() {
+		for(int row=0;row<theField.getSize();row++) {
+			for(int col=0;col<theField.getSize();col++) {
+				Cell cell = theField.get(row,col);
+				if(cell!=null)
+				{
+					Animal animal =(Animal) cell;
+					animal.grow();
+				}
+			}
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

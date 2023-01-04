@@ -1,0 +1,40 @@
+package animal;
+
+public Animal {
+	private  int ageLimit;
+	private int breedableAge;
+	private int age;
+	private boolean isAlive =true;
+	
+	public Animal(int ageLimit,int breedableAge) {
+		this.ageLimit =ageLimit;
+		this.breedableAge =breedableAge;
+	}
+	protected int getAge() {
+		return age;
+	}
+	
+	protected double getAgePercent() {
+		return (double)age / (double) ageLimit;
+	}
+	public abstract Animal breed();
+	
+	public void grow() {
+		age++;
+		if(age >=ageLimit)
+			die();
+	}
+	public void die() {
+		isAlive= false;
+	}
+	public boolean isAlive() {
+		return (age >= breedableAge);
+	}
+	public Location move(Location[] freeAdj) {
+		Location ret= null;
+		if (freeAdj.length>0 && Math.random()<0.02) {
+			ret = freeAdj[(int)(Math.random()*freeAdj.length)];
+		}
+		return ret;
+	}
+}

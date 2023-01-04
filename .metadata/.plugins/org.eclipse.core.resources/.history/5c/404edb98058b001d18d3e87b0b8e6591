@@ -1,0 +1,18 @@
+
+
+public class Snippet {
+	1.类中只有main一个方法，制造了一个field对象，对各类的数据进行操作。
+	
+	2.用一个双层for循环，用place往field中放进一个个Cell元素。
+	
+	3.用一个双层for循环，用get取出field的每一个元素，并进行Math.abs < 0.2的判断，即有1/5的几率抽中某个细胞重生。
+	
+	4.CellMachine继承了JFrame，对JFrame进行常规的设置（setDefaultCloseOperation setResizable setTitle setVisible等），把field传入View中，field和view在cellmachine中发生了联系。
+	
+	5.用一个三层for循环，先通过规定循环的总次数，再取出field的每一个细胞。如果该细胞为活细胞，对它周围活着的邻居进行数量统计，数量 <2 或者数量 >3，则对该cell调用die方法。如果该细胞为死细胞，对它周围活着的邻居进行数量统计，数量 =3，则对该细胞调用reborn方法。
+	
+	6.用一个线程，设置每运行一次休眠200毫秒。
+	————————————————
+	版权声明：本文为CSDN博主「曾逗逗」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+	原文链接：https://blog.csdn.net/weixin_52495418/article/details/127099999
+}

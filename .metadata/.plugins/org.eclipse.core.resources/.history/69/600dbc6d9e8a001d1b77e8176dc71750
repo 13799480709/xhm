@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author XHM
+ *
+ */
+module cellmachine {
+	requires java.desktop;
+}

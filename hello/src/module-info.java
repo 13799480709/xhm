@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author XHM
+ *
+ */
+module hello {
+}
