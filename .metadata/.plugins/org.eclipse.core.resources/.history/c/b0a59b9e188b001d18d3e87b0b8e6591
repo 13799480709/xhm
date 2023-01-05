@@ -1,9 +1,0 @@
-package animal;
-
-public class Fox extends Animal implements Cell  {
-	private 
-	
-	public Fox(){
-		super(20,4);
-	}
-}
